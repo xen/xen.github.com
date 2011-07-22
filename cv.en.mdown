@@ -1,0 +1,116 @@
+# Mikhail Kashkin
+
+## About me
+
+Birthday: 29 october 1980
+Headline: python programmer, project manager, system architect.
+
+I'm successfull programmer with more than 10 years of expiriance. My specialisation is highload and long-term web projects. Professional goals — relationship with product IT company with target market in US and Europe.
+
+Languages: Russian, English.
+
+## Контакты
+
+- Email/Jabber: mkashkin@gmail.com
+- Skype: mkashkin
+- Cell phone: +380 (67) 283-8299
+
+Social and open source:
+
+- [http://code.google.com/u/mkashkin/](http://code.google.com/u/mkashkin/)
+- [http://github.com/xen/](http://github.com/xen/)
+- [http://www.linkedin.com/in/mkashkin](http://www.linkedin.com/in/mkashkin)
+- [http://xen.habrahabr.ru/](http://xen.habrahabr.ru/)
+
+## Skills
+
+Programming languages: Python, Javascript, HTML5.
+
+Python frameworks: Zope, Plone, Django, Pyramid, Tipfy, Flask, Google App Engine.
+
+Databases: Postgres/MySQL. Non-relations: Google Datastore, ZODB, CouchDB. Работа через ORM.
+
+IT: Highload, system architect.
+
+Source code management: Git, Mercurial, Subversion. Buildout, pip.
+
+Project management: Team leader, HR and team building from scratch, development process management, planing, risk management, requirements and scope definition, continouce quality control, development methodology. XP, SCRUM, team management. 
+
+OS: OSX, Linux (Ubunty), Windows.
+
+## Work expirience
+
+### iPark Ventures (Odessa, Ukraine), CTO/System architect, feb 2010 - may 2011
+Tasks: создание команды программистов, создание проекта Experika.com.<br/>
+Technologies: Google App Engine, Tipfy, Python. Проект работает на нереляционной базе данных Datastore которая является основой проектов Google.<br/>
+Links:
+
+- [http://experika.com](http://experika.com)
+
+### Mediavirus.ru (Dnepropetrovsk, Urkaine), Self-employed, 2008 - 2009
+Tasks: создание средств сбора и анализа интернет проектов, сфера бизнеса SEO.<br/>
+Technologies: Python, GAE.<br/>
+Links:
+
+- [http://seoautomator.mediavirus.ru](http://seoautomator.mediavirus.ru) (закрытый сервис)
+
+### Freelance (Dnepropetrovsk, Urkaine), freelancer/консультант, 2008 - 2009
+Технологии: Django, MySQL<br/>
+Projects: некоторое количество python проектов, в основном на Django и Google App Engine<br/>
+Links:
+
+- [http://imperiadp.com.ua/](http://imperiadp.com.ua/)
+
+### Key Solutions (Moscow, Russia — Dnepropetrovsk, Urkaine), cofounder, 2003 - 2007
+Tasks: ведение клиентских проектов, управление бизнесом, lead-программист, консультант.<br/>
+Technologies: Python Zope 2, Zope CA, Plone, Postgres, MySQL, объектно-ориентированная база данных ZODB.<br/>
+Избранные проекты: 
+
+* группа сайтов (около 10 проектов разного размера) и систем управления для крупнейшего агенства недвижимости России [МИЭЛЬ](http://www.miel.ru) (сейчас сайты поддерживаются студией Артемия Лебедева). Zope, python, Postgres.
+* Ассоциация CRM России и СНГ, [http://acrm.ru/](http://wayback.archive.org/web/*/http://acrm.ru/), Plone.
+* Телеканал Спорт, [http://sportbox.ru/](http://sportbox.ru/), версия 2007 - 2009 года, один из крупнейших Zope3 проектов
+
+
+## Nonprofit
+
+Членство в организациях:
+
+- Plone Foundation Member.
+- Django Community
+- Zope3 Community
+
+Являюсь администратором и участником списков рассылки:
+
+- https://groups.google.com/group/erlang-russian
+- https://groups.google.com/group/google-appengine-ru
+- https://groups.google.com/group/plone-ru
+- http://groups.google.com/group/zope3-ru
+
+Активный участник GTUG Украины, Python и open source сообщества.
+
+Лекции и доклады:
+
+- GTUG Киев, GTUG Днепропетровск
+- PyCon Украина (ведущий в 2010 году)
+- в период 2003-2007 проводил спринты и встречи Zope/Plone разработчиков в Москве, Санкт-Питербурге
+
+Веду блог [http://www.vurt.ru/](http://www.vurt.ru/)
+
+Прошлые контент проекты:
+
+- http://plone.org.ru/ — сайт для Plone программистов
+- http://zope3.ru/
+- http://marketinglab.ru/
+
+
+## Прочее
+
+Семейный статус: счастливый муж и отец, у нас есть дочка.
+
+Интересы: путешествия, geek-культура, японская культура.
+
+Есть водительское удостоверение и загран паспорт.
+
+Не курю.
+
+
