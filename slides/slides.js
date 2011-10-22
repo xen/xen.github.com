@@ -10,7 +10,7 @@
   URL: http://code.google.com/p/html5slides/
 */
 
-var PERMANENT_URL_PREFIX = 'http://xen.github.com/slides/';
+var PERMANENT_URL_PREFIX = 'slides/';
 
 var SLIDE_CLASSES = ['far-past', 'past', 'current', 'next', 'far-next'];
 
