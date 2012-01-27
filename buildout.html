@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Buildout</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='slides/slides.js'></script>
+    <link href="slides/prettify/prettify.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="slides/prettify/prettify.js"></script>
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    .slides.template-default > article:not(.nobackground):not(.biglogo) {
+      background:white;
+    }
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+        
+      <article>
+        <h1>
+          Buildout
+          <br>
+        </h1>
+        <p>
+          Михаил Кашкин, 2011<br />
+          #uapycon
+        </p>
+      </article>
+
+      <article>
+        <h3>
+          Обо мне
+        </h3>
+        <p>
+          Python разработчик, менеджер проектов.
+        </p>
+        <p></p>
+        <div class="build">
+          <h3>Дополнительная сфера интересов</h3>
+          <p>
+            Уменьшение стресса при разработке проектов.
+          </p>
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          Почему о buildout?
+        </h3>
+        <ul class="build">
+          <li>Проект достаточно старый (2006 год)</li>
+          <li>~1500 модулей на pypi.python.org (<strong>OMG!!1</strong>)</li>
+          <li>Является основой для многих open source проектов: Plone, Pyramid</li>
+          <li>Удивительно редко используется в русскоязычных проектах</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Пакеты основа python cообщества
+        </h3>
+        <p>
+          Пакеты представленные на Pypi.python.org являются обязательным способом рекламы своего проекта. Кроме того это единственная возможность удобно организовать свое рабочее окружение с помощью стандартных инструментов.
+        </p>
+      </article>
+
+
+      <article>
+        <h3>
+          Как устроена система пакетирования
+        </h3>
+        <ul class="build">
+          <li>У вас есть код</li>
+          <li>Вы его оформляете особым образом</li>
+          <li>Создаете пакет</li>
+          <li>Выкладываете в какой-то общий репозиторий</li>
+        </ul>
+        <p>
+          Другие пользователи могут использовать стандартные средства установки пакетов локально.
+        </p>
+      </article>
+
+      <article>
+        <h3>
+          Инструменты pip, easy_install
+        </h3>
+        <p>
+          <strong>easy_install</strong> - Устанавливает в системную область, что создает проблемы с версиям или девелоперскими версиями. Для того чтобы ограничить рабочую область используется <code>virtualenv</code>.
+        </p>
+        <p>
+          <strong>pip</strong> — позволяет разворачивать рабочее окружение с нужными модулями, но не имеет системы рецептов.
+        </p>
+      </article>
+
+      <article>
+        <h3>Пару слов о virtualenv</h3>
+        <p>
+          Инструмент для создания изолированных python окружений. 
+        </p>
+      </article>
+
+      <article>
+        <h3>Для чего нужен buildout</h3>
+        <ul class="build">
+          <li>Способ быстрого создания рабочего окружения</li>
+          <li>Развертки/запуска проекта</li>
+          <li>Средство виртуализации python окружения</li>
+          <li>= Простой способ что-то взять и попробовать (или начать работу)</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Buildout
+        </h3>
+        <ul class="build">
+          <li>
+            Средство для развертки окружения <code>bootstrap.py</code>
+          </li>
+          <li>
+            Файл конфигурации <code>buildout.cfg</code>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Практическое вступление
+        </h3>
+        <pre>
+        $ touch buildout.cfg
+        $ python &lt;(curl http://python-distribute.org/bootstrap.py) \
+           --distribute
+        </pre>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Реальный buildout.cfg
+        </h3>
+        <pre class="prettyprint">
+[buildout]
+parts =
+  python
+  django
+develop = .
+
+extends = versions.cfg
+versions = versions
+download-cache = etc/downloads
+eggs-directory = etc/eggs
+develop-eggs-directory = etc/develop-eggs
+parts-directory = etc/parts
+
+eggs =
+  newsportal
+  python-openid
+  simplejson
+  ipython
+  south
+  django-markdown
+  django-sphinx
+[python]
+...
+
+[django]
+...
+        </pre>
+      </article>
+
+      <article>
+        <h3>
+          Использование рецептов
+        </h3>
+        <pre class="prettyprint">
+[buildout]
+parts =
+  python
+  django
+...
+
+[python]
+recipe = zc.recipe.egg
+interpreter = py
+eggs = ${buildout:eggs}
+
+[django]
+recipe = djangorecipe
+settings = development
+project = newsportal
+wsgi = true
+eggs =
+  ${buildout:eggs}
+        </pre>
+      </article>
+
+      <article>
+        <h3>Подготовка продукта</h3>
+        <pre class="prettyprint lang-py">
+setup.py:
+
+from setuptools import setup, find_packages
+
+setup(
+    name = "newsportal",
+    version = "1.0",
+    url = '', #PyPI
+    license = 'BSD',
+    description = "Local news portal",
+    author = 'Mikhail Kashkin, www.vurt.ru',
+    packages = find_packages('newsportal'),
+    package_dir = {'': 'newsportal'},
+    install_requires = [
+      'setuptools', 
+      'simplejson'
+    ],
+)
+       </pre>      
+      </article>
+
+      <article>
+        <q>
+          Use setup.cfg instead of setup.py
+        </q>
+        <div class='author'>
+          Tarek Ziade
+        </div>
+      </article>            
+
+      <article>
+        <h3>Особые случаи</h3>
+        <ul>
+          <li>Есть код, нет пакета</li>
+          <li>Надо править пакет (egg)</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Выкачивание из системы контроля версий</h3>
+        <p><code>mr.developer</code> или <code>pip</code> рецепт (понимает синтаксис файла зависимостей)</p>
+        <p>Мене популярные: <code>plone.recipe.bundlecheckout</code></p>
+      </article>
+
+      <article>
+        <h3>Разработка яйца локально</h3>
+        <pre>
+$ git clone .../devegg.git etc/develop-eggs/devegg</pre>
+        <pre>
+[buildout]
+...
+eggs =
+    ...
+    devegg
+
+develop =
+    etc/developeggs/devegg</pre>
+        <pre>
+$ bin/buildout</pre>
+
+      </article>
+
+      <article>
+      <h3>Использование стандартных средств: make</h3>
+      <pre class="prettyprint lang-makefile">
+$ ~/Dev/newsportal/src$ cat Makefile 
+PY_VER  = $(shell python -V 2>&1 | cut -f 2 -d ' ' | cut -f 1 -d .)
+ifeq ($(PY_VER), 3)
+    PYTHON=python2
+else
+    PYTHON=python
+endif
+all: run
+run: bin/py
+  bin/django
+bin/buildout:
+  $(PYTHON) bootstrap.py
+build: bin/py
+bin/py: bin/buildout buildout.cfg
+  bin/buildout
+      </pre>
+      </article>
+
+      <article>
+       <pre>
+[buildout]
+extensions = buildout.dumppickedversions
+dump-picked-versions-file = versions.cfg
+extends = versions.cfg
+versions = versions
+</pre>
+<pre>
+[versions]
+...
+</pre>
+</article>
+ 
+      <article>
+        <h3>Наш опыт</h3>
+        <p>Совмещение открытых и закрытых проектов</p>
+      </article>
+
+      <article>
+        <h1>
+          Че ваще?
+        </h1>
+      </article>
+
+      <article class='nobackground'>
+        <h3>
+          Buildout.org
+        </h3>
+        <iframe src='http://www.buildout.org/'></iframe>
+      </article>
+
+      <article class='nobackground'>
+        <h3>
+          <a href="http://plone.org/documentation/manual/developer-manual/referencemanual-all-pages">plone.org/documentation/manual/developer-manual/</a>
+        </h3>
+        <iframe src='http://plone.org/documentation/manual/developer-manual/referencemanual-all-pages'></iframe>
+      </article>
+
+      <article>
+        <h1>
+          Че ваще?
+        </h1>
+        <p>
+          @mikashkin, github.com/xen/
+        </p>
+
+      </article>
+
+    </section>
+  </body>
+</html>
