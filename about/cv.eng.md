@@ -1,3 +1,9 @@
+---
+layout: page
+title: "Resume"
+---
+{% include JB/setup %}
+
 # Mikhail Kashkin
 
 ## About me

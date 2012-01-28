@@ -1,3 +1,9 @@
+---
+layout: page
+title: "Резюме"
+---
+{% include JB/setup %}
+
 # Михаил Кашкин
 
 ## Обо мне
