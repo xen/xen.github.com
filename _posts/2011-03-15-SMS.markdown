@@ -1,0 +1,31 @@
+---
+layout: post
+title: "SMS верификация"
+category: 
+tags: ['dev']
+---
+Мне сложно судить о том, что SMS верификация это плохо. Как человек который находится по ту сторону проверки срабатывает стокгольмский синдром и кажется, что все не так уж и сложно, но как видно у некоторых людей все же есть проблемы. Вот пример истории такой истории. 
+
+<p><a href="http://romaklimenko.tumblr.com/post/265077219/google-app-engine" class="tumblr_blog">romaklimenko</a>:</p>
+
+<blockquote><p>Вчера я написал небольшое приложение на Django для Google App Engine, но выложить не смог, т.к. на мой номер не приходили SMS с auth. code. Я конечно расстроился, написал в поддержку Google, а сам стал думать что может это и к лучшему, ведь на нормальном хостинге и возможностей больше.</p>
+
+<p>Но на следующий день мне пришло такое письмо:</p>
+
+<blockquote>
+Hello,</blockquote>
+
+<blockquote>You&#8217;re receiving this email because you indicated you&#8217;d had some problems verifying your Google App Engine account using SMS.  We just wanted to let you know we&#8217;ve enabled your account&#8212;you should be able to create applications now!</blockquote>
+
+<blockquote>To start creating applications with Google App Engine, simply follow this link:</blockquote>
+
+<blockquote><a href="https://appengine.google.com/">https://appengine.google.com/</a></blockquote>
+
+<blockquote>Thanks!</blockquote>
+<blockquote>The Google App Engine Team</blockquote>
+
+<p>По моему это образец правильного саппорта. Да, есть странное требование авторизации по SMS, но если у клиента с этим проблема, проблема будет решена.</p>
+
+<p>За сутки, прошедшие со времени моего обращение в поддержку, я свыкся с мыслью о том, что мне надо искать нормального хостера и перенес весь код на нормальное Django. Но это другая история и мое отношение к Google как к компании стало только лучше.</p></blockquote>
+
+В общем, не отчаивайтесь даже если SMS не пришло сразу.

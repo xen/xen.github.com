@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Релиз 1.2.8 "
+category: 
+tags: ['sdk']
+---
+После <a href="http://www.vurt.ru/2011/03/1-2-8-SDK">тестового периода</a> вышел релиз версии 1.2.8. 
+
+Несколько дней в блоге будет пауза, перевожу на новый движок и новый домен.
+
+[Релиз](http://googleappengine.blogspot.com/2009/12/app-engine-sdk-128-released-including.html)

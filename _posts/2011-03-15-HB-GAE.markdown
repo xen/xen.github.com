@@ -1,0 +1,7 @@
+---
+layout: post
+title: "HB, GAE!"
+category: 
+tags: ['calendar']
+---
+Сегодня <a href="https://appengine.google.com/">Google App Engine</a> исполняется 2 года. Присоединяюсь к поздравлениям. 

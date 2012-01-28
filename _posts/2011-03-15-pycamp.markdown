@@ -1,0 +1,9 @@
+---
+layout: post
+title: "Выступления на pycamp в Киеве"
+category: 
+tags: ['video']
+---
+Видео с выступления на pycamp в Киеве. Начало немного смазано. Выступление было расчитано на аудиторию с начальным уровнем знаний, поэтому возможно кому-то покажется повторением материала.
+
+<embed src="http://blip.tv/play/g_5ggcuPZQI" type="application/x-shockwave-flash" width="480" height="295" allowscriptaccess="always" allowfullscreen="true"></embed>

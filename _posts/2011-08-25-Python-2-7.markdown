@@ -1,0 +1,7 @@
+---
+layout: post
+title: "Python 2.7"
+category: 
+tags: ['testers', 'python27']
+---
+Для тех кто не следит за [развитием работ связанных с добавлением python runtime 2.7](http://code.google.com/p/googleappengine/issues/detail?id=3429) хочу обратить внимание, что сейчас открыта регистрация на тестирование. Недавно задача поменяла статус на "Начата" и вот первые плоды — это [форма регистрации для доверенных тестировщиков](https://docs.google.com/spreadsheet/viewform?formkey=dDVaelk0NkhHMVA2NU5kS1hfajNfM0E6MQ).

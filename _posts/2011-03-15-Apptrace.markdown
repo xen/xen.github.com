@@ -1,0 +1,9 @@
+---
+layout: post
+title: "Apptrace — средство анализа использования памяти"
+category: 
+tags: ['docs']
+---
+Статья будет интересна для тех кто использует тяжелые фреймворки или не уверен эффективности использования памяти. Если вы обнаружили в логах запись &ldquo;Exceeded soft memory limit with 201.52 MB after servicing 415 requests total.&rdquo;, то Apptrace — первая помощь для анализа мест где возникают проблемы.
+
+[Документация](http://code.google.com/p/apptrace/wiki/UsingApptrace)

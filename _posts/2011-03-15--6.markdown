@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Слайдкаст Андрея Таранцова"
+category: 
+tags: ['video']
+---
+Слайдкаст [Андрея Таранцова](http://blog.tarantsov.com/) для [RuPy конференции](http://rupy.ru/member/7/#paper-30) проходившей в Омске.
+
+Хороший вводный доклад на русском языке, в некоторых местах уже немного устарел, но это детали. 
+
+<embed src="http://blip.tv/play/AYGH9XMC" type="application/x-shockwave-flash" width="480" height="390" allowscriptaccess="always" allowfullscreen="true"></embed> 

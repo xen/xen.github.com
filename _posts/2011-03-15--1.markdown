@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Сайт политехнического ВУЗа Австралии"
+category: 
+tags: ['links']
+---
+Проект примечателен тем, что работает на Zope3 (!!!)
+
+**Upd.**: на самом деле сайт работает на repoze.bfg, который теперь стал Pyramid
+
+[Сайт](http://www.polytechnic.wa.edu.au/)

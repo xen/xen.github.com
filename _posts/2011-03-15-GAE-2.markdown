@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Архитектура высоконагруженных проектов работающих на GAE"
+category: 
+tags: ['video']
+---
+Видео доклада "Архитектура высоконагруженных проектов работающих на GAE". Это мое очередное выступление в Киеве на PyConf'е. 
+
+<a href="http://www.scribd.com/doc/39999753/">Слайды доклада</a>. 
+
+<embed src="http://blip.tv/play/hsBego3RfQI%2Em4v" type="application/x-shockwave-flash" width="480" height="345" allowscriptaccess="always" allowfullscreen="true"></embed>

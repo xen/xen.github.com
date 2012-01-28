@@ -1,0 +1,333 @@
+---
+layout: post
+title: "Введение в Tipfy"
+category: 
+tags: ['tipfy', 'dev', 'sdk']
+---
+Уже не раз писал о том, что мы используем в качестве основы [Tipfy](http://www.tipfy.org/). И я думаю остаются вопросы прочему и в чем особенности.
+
+Прежде всего tipfy состоит из нескольких частей, которые в целом определили наш выбор. Поскольку [zc.buildout](http://www.buildout.org/) это необходимое условие для работы над любым python проектом, в котором участвует несколько человек, возникла задача найти нормальный рецепт для разворачивания GAE SDK. Такой рецепт был найден, заодно захотелось узнать, чем занимается автор и, оказалось, что он еще и делает [Tipfy](http://www.tipfy.org/). Поскольку нам хотелось отказаться от всего мусора, который предлагает Django, то Tipfy быстро занял нужное место.
+<!-- cut -->
+
+Вот краткий список того, что нужно было именно нам:
+
+- Рецепт для разворачивания GAE проектов [appfy.recipe.gae](http://pypi.python.org/pypi/appfy.recipe.gae/). 
+- Tipfy ориентирован на скорость, что определяет, какие компоненты в него включены
+- Подходит для создания сайтов без фреймворка
+- Имеет более-менее понятный стандарт конфигурирования
+- Уже имеет некоторые полезные модули для организации авторизации, работы с задачами, security cookie
+
+> **Внимание**  
+> Это важная оговорка, многие могут подумать, что Tipfy — это то, что им 
+> надо для начала работы над новым GAE проектом. Хочу предостеречь 
+> этих людей. Tipfy прежде всего ваш выбор тогда, когда вы точно
+> уверены, что код фреймворка будет только мешать. 
+
+## С чего начать
+
+Убедитесь, что версия python, которую вы используете, является версией 2.5.x. Надеюсь, что скоро это требование устареет, в связи с планами Google добавить поддержку 2.7. 
+
+Мой пример будет немного отличаться от рекомендуемого пути, но приведет к тому же результату. 
+
+Создайте папку проекта:
+
+    [sourcecode:console]
+    $ mkdir demo
+    $ cd demo
+    [/sourcecode]
+
+## Подготавливаем окружение
+
+Теперь можно создать buildout.cfg, все его содержимое можно взять на странице [документации по рецепту appfy.recipe.gae](http://pypi.python.org/pypi/appfy.recipe.gae/):
+
+    [sourcecode:cfg]
+    [buildout]
+    parts =
+        gae_sdk
+        gae_tools
+        app_lib
+
+    unzip = true
+    relative-paths = true
+    download-cache = etc/downloads
+    # eggs-directory = etc/eggs
+    develop-eggs-directory = etc/develop-eggs
+    parts-directory = etc/parts
+
+    #
+    [gae_sdk]
+    recipe = appfy.recipe.gae:sdk
+    url = http://googleappengine.googlecode.com/files/google_appengine_1.4.3.zip
+    destination = ${buildout:parts-directory}
+    hash-name = false
+    clear-destination = true
+
+    #
+    [gae_tools]
+    recipe = appfy.recipe.gae:tools
+    sdk-directory = ${gae_sdk:destination}/google_appengine
+
+    [app_lib]
+    # Sets the library dependencies for the app.
+    recipe = appfy.recipe.gae:app_lib
+    lib-directory = src/distlib
+    use-zipimport = false
+
+    #
+    eggs =
+        tipfy
+        tipfy.ext.debugger
+        tipfy.ext.jinja2
+        tipfy.ext.wtforms
+        tipfy.ext.db
+    # Остальные необходимые модули, например:
+    #   pygments
+    [/sourcecode]
+
+Конечно выполнение этого сценария потребует создания структуры папок:
+
+  * `etc/downloads` — кеш, в который скачиваются egg файлы
+  * `etc/develop-eggs` — папка, в которую можно будет положить яйца, которые будут разрабатываться
+  * `etc/parts` — рабочая директория рецептов, которым нужны дополнительные данные, в нашем случае сюда скачается GAE SDK
+  * `src` — собственно данные проекта и его исходный код
+  * `src/distlib` — ключевое место проекта, вся магия для того, чтобы наполнить эту папку зависимыми модулями, которые потом уйдут на хостинг вместе с кодом
+
+Подробнее о работе переменных, которым присвоены значения с путями, можно прочитать в [справке по buildout](http://pypi.python.org/pypi/zc.buildout#predefined-buildout-options).
+
+Создаем папки:
+
+    [sourcecode:console]
+    demo $ mkdir etc etc/downloads etc/develop-eggs etc/parts
+    demo $ mkdir src src/distlib
+    [/sourcecode]
+    
+Самое время развернуть окружение:
+
+    [sourcecode:console]
+    demo $ python2.5 <(curl http://python-distribute.org/bootstrap.py) --distribute
+    [/sourcecode]
+
+Команда создает папку `bin` и скачивает современный аналог старых setuptools [distribute](http://packages.python.org/distribute/). Поскольку выполнять требуется один раз, предлагаю такой краткий вариант. А теперь главная часть:
+
+    [sourcecode:console]
+    demo $ bin/buildout
+    [/sourcecode]
+
+Выполнение команды займет некоторое время, но результат того стоит. Вы получите полностью готовое окружение.
+
+## Устройство проекта
+
+Теперь дело за малым, начать писать код своего проекта. Он будет расположен в папке `src`. Структура tipfy проекта достаточно простая:
+
+  * `app.yaml` — уже знакомый по документации [конфигурационный файл](http://code.google.com/appengine/docs/python/config/appconfig.html#About_app_yaml) Google App Engine проекта
+  * `main.py` — в принципе, этот файл нужно будет изменять достаточно редко
+  * `config.py` — файл конфигурации, тоже должен быть знаком по многим другим проектам
+  * `urls.py` — правила роутинга адресов страниц к хендлерам их обрабатывающим
+
+Авторы рекомендуют так же следующие папки:
+
+  * `lib` — ваши библиотеки
+  * `templates` — папка с шаблонами, если ваш проект совсем маленький, то возможно будет удобно размещать все шаблоны в одной папке
+  * `static` — место для статических файлов, часто можно встретить следующую структуру внутри:
+    * `js` — javascript
+    * `images` — картинки
+    * `css` — таблицы стилей
+    * остальные файлы, например, `robots.txt`, `favicon.ico`
+
+### `app.yaml`
+
+Файл, необходимый для работы любого GAE проекта. Минимальное содержимое для tipfy получится следующим:
+
+    [sourcecode:yaml]
+    application: my-app # тот id который вы выбрали в консоли GAE
+    version: dev        # версия
+    runtime: python
+    api_version: 1
+
+    derived_file_type:
+    - python_precompiled
+
+    handlers:
+    - url: /(robots\.txt|favicon\.ico)
+      static_files: static/\1
+      upload: static/(.*)
+
+    - url: /static      # та самая папка static
+      static_dir: static
+
+    - url: /remote_api
+      script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
+      login: admin
+
+    - url: /_ah/queue/deferred
+      script: main.py
+      login: admin
+
+    - url: /.*
+      script: main.py
+    [/sourcecode]
+
+Обратите внимание на последний блок, он указывает, что любые адреса страниц, кроме тех, которые были указаны выше (порядок имеет значение) передаются модулю `main.py`. 
+
+### `main.py`
+
+Главный загрузочный файл проекта тоже достаточно простой:
+
+    [sourcecode:python]
+    # -*- coding: utf-8 -*-
+    import os
+    import sys
+    
+    if 'lib' not in sys.path:
+        # Add /lib as primary libraries directory, with fallback to /distlib
+        # and optionally to distlib loaded using zipimport.
+        sys.path[0:0] = ['lib', 'distlib', 'distlib.zip']
+    
+    import config
+    import tipfy
+    
+    # Is this the development server?
+    debug = os.environ.get('SERVER_SOFTWARE', '').startswith('Dev')
+    
+    # Instantiate the application.
+    app = tipfy.make_wsgi_app(config=config.config, debug=debug)
+    
+    def main():
+        app.run()
+    
+    if __name__ == '__main__':
+        main()
+    [/sourcecode]
+
+Строка `if 'lib' not in sys.path:` проверяет добавлены ли модули, которые лежат в папке `lib`, в путях, по которым ищет python. Из-за особенности устройства инстанций GAE путь уже может быть изменен (модулем, который загрузился до этого или [warmup хендлером](http://code.google.com/appengine/docs/python/config/appconfig.html#Warmup_Requests)), поэтому проводится проверка. 
+
+Рецепт `appfy.recipe.gae` после запуска `bin/buildout` заполняет папку `src/distlib` теми продуктами, которые перечислены в директиве `${app_lib:eggs}` в `buildout.cfg`. Поэтому, после перезапуска buildout'а мы получаем актуальное содержимое папки, включая изменения из яиц, которые разрабатываются и находятся в режиме для разработки.
+
+Редактировать файл `main.py` требуется крайне редко, разве что вам надо загрузить какие-то модули до обработки конфигурации и того, как начнут обрабатываться middleware самим tipfy (а точнее [werkzeug](http://werkzeug.pocoo.org/) вокруг которого tipfy на самом деле является оберткой).
+
+### `config.py`
+
+Конфигурационный файл тоже имеет достаточно простую архитектуру, из обязательных полей, по сути только перечень middleware (который может быть пустым) и сам перечень приложений:
+
+    [sourcecode:python]
+    # -*- coding: utf-8 -*-
+    config = {}
+
+    # Configurations for the 'tipfy' module.
+    config['tipfy'] = {
+        # Enable debugger. It will be loaded only in development.
+        'middleware': [
+            'tipfy.ext.debugger.DebuggerMiddleware',
+        ],
+        # Перечень ваших приложений
+        'apps_installed': [
+            'demo',
+            # другие приложения
+        ],
+    }
+    
+    # Остальные настройки
+    [/sourcecode]
+    
+### `urls.py`
+
+Хотя описание путей само по себе нельзя назвать простым занятием, но файл `urls.py` в данном случае является предельно простым и прозначным:
+
+    [sourcecode:python]
+    # -*- coding: utf-8 -*-
+    from tipfy import get_config, import_string, Rule
+    import logging
+
+    def get_rules():
+        rules = []
+        for app_module in get_config('tipfy', 'apps_installed'):
+            try:
+                # Load the urls module from the app and extend our rules.
+                app_rules = import_string('%s.urls' % app_module)
+                rules.extend(app_rules.get_rules())
+            except (AttributeError, ImportError):
+                logging.error("Ouch! Misconfigured modules list, cant use %r" % 
+                    app_module)
+
+        return rules
+    [/sourcecode]
+
+Задача файла обойти все приложения, зарегистрированные в конфигурационном файле `config.py` (директива `apps_installed`) и объединить их в единое правило. 
+
+## Пишем код
+
+Теперь время написать хоть что-то, что сможет вывести на экран вожделенный `Fuck world!`. Создайте папку `demo`, со следующей структурой:
+
+  * `__init__.py` — пустой файл, который говорит, что текущая папка является python модулем
+  * `handlers.py` — непосредственно код модуля
+  * `urls.py` — правила обработки страниц сайта
+  
+Содержимое `src\demo\handlers.py`:
+
+    [sourcecode:python]
+    from tipfy import RequestHandler, Response
+
+    class HelloWorldHandler(RequestHandler):
+        def get(self):
+            return Response('Hello, World!')
+    [/sourcecode]
+
+Содержимое `src\demo\urls.py`:
+
+    [sourcecode:python]
+    from tipfy import Rule
+    def get_rules(app):
+        rules = [
+            Rule('/', endpoint='hello-world', handler='demo.handlers.HelloWorldHandler'),
+        ]
+    [/sourcecode]
+
+## Запуск проекта
+
+Когда весь гениальный код написан, хочется его проверить в деле. Рецепт `appfy.recipe.gae` услужливо сделал для этого все нужные скрипты и разместил их в папке bin. Поскольку нас интересует запуск, выполните следующую команду:
+
+    [sourcecode:console]
+    demo $ bin/dev_appserver src
+    [/sourcecode]
+    
+Если все было сделано правильно, у вас должны были появиться логи проверки версии SDK и уведомление о том, на каком порту запущен веб сервер. Адрес можно скопировать в браузер и попытаться зайти, где с некоторой вероятностью получить приветствие.
+
+Скрипт `dev_appserver` может получать все те параметы, которые описаны в [документации](http://code.google.com/appengine/docs/python/tools/devserver.html), но для удобства можно их перечислить в специальном конфигурационном файле `gaetools.cfg` и положить рядом с `buildout.cfg`. Пример файла:
+
+    [sourcecode:cfg]
+    [dev_appserver]
+    defaults =
+        --datastore_path=var/data.store
+        --history_path=var/history.store
+        --blobstore_path=var/blob.store
+        src
+    [/sourcecode]
+
+Последняя строка указывает на папку, в которой расположен проект, что упростит команду запуска сервера до:
+
+    [sourcecode:console]
+    demo $ bin/dev_appserver
+    [/sourcecode]
+
+Не забудьте создать папку `var` если воспользуетесь указанным файлом.
+
+## Развертывание проекта на хостинге
+
+Остался последний шаг - отправить проект на сервера App Engine и проверить работу там. Для этого в папке `bin` есть скрипт `appfg`, который так же входит в состав стандартного SDK, и имеет тот же самый [набор команд](http://code.google.com/appengine/docs/python/tools/uploadinganapp.html). Заливка на сервер происходит достаточно просто:
+
+    [sourcecode:console]
+    demo $ bin/appcfg --no_cookies --email=your_email@gmail.com --passin update src
+    [/sourcecode]
+
+В качестве email'а укажите свой. Выполнение команды может занять минуты.
+
+## Дополнительная информация
+
+Все описаные шаги в будущем можно сократить, скачав с сайта tipfy архив типового проекта [www.tipfy.org/tipfy.build.tar.gz](http://www.tipfy.org/tipfy.build.tar.gz), в котором уже есть необходимая структура папок и файлов.
+
+Дополнительные ссылки:
+
+  * [Werkzeug](http://werkzeug.pocoo.org/) — основная библиотека, на основе которой построен tipfy
+  * [Tipfy](http://www.tipfy.org/) — главный сайт Tipfy, место, где можно найти более подробную документацию
+  * [Tools and tips](http://code.google.com/appengine/tools_tips.html) — карта статей и документации по разным API GAE
+  

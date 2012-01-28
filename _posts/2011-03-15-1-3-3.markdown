@@ -1,0 +1,9 @@
+---
+layout: post
+title: "Релиз 1.3.3"
+category: 
+tags: ['sdk']
+---
+В принципе все что нового вышло в новой версии можно описать следующей строкой:
+
+<code>$ dev_appsever.py --use_sqlite --datastore_path=/tmp/datastore.sqlite path/to/your/app</code>

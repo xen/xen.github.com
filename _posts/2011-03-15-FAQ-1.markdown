@@ -1,0 +1,14 @@
+---
+layout: post
+title: "FAQ: Как мне определить где запускается код"
+category: 
+tags: ['faq']
+---
+Возможно очень простой вопрос, но тем не менее. Как можно определить что код запускается именно локально в SDK, а не на боевом сервере.
+
+Вот пример который поможет:
+
+{% highlight python %}
+if os.environ[‘SERVER_SOFTWARE’].startswith(‘Development’):
+  pass
+{% endhighlight %}

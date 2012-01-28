@@ -1,0 +1,39 @@
+---
+layout: post
+title: "PyCon Украина (23-24 октября, Киев)"
+category: 
+tags: ['events', 'pycon']
+---
+Для тех кто ещё не знает хочу сообщить радостную весть: 23-24 октября мы проводим в Киеве конференцию PyCon Ukraine посвящённую Python.
+
+Конференция международная, и в ней будут принимать участие много иностранных гостей. Ожидается много интересных людей:
+<ul><li><a href="http://lucumr.pocoo.org/">Armin Ronacher</a> (автор <a href="http://jinja.pocoo.org/">Jinja</a>, <a href="http://werkzeug.pocoo.org/">Werkzeug</a>, <a href="http://dev.pocoo.org/projects/pygments/">Pygments</a> и соавтор нового <a href="http://www.python.org/dev/peps/pep-0444/">PEP 444</a>)</li>
+<li><a href="http://www.aeracode.org/">Andrew Godwin (автор South)</a></li>
+<li><a href="http://twitter.com/jbronn">Justin Bronn</a> (автор GeoDjango)</li>
+<li><a href="http://djangoadvent.com/authors/arthur-koziel/">Arthur Koziel</a></li>
+<li><a href="http://blog.programa.pl/">Marcin Szajek</a> (Programa.pl) and Maciej Dziardziel (Adwertajzing)</li>
+<li><a href="http://www.pyobject.ru/">Юрий Юревич</a></li>
+<li><a href="http://www.xen.ru/">Михаил Кашкин</a></li>
+<li>+ многие другие</li></ul> Стоимость участия всего 350 грн (примерно $44, или 1 367 руб.).
+
+
+<b>Регистрируйтесь на <a href="http://ua.pycon.org/?utm_source=habrahabr.ru&amp;utm_medium=link&amp;utm_campaign=ua.pycon.org">http://ua.pycon.org/</a>. 
+
+Каждый участник получает бесплатную футболку PyCon Ukraine.</b>
+
+С докладами в данный момент определяемся, на данный момент можем сказать что будет несколько известных зарубежных докладчиков, кроме того продолжаем переговоры с потенциальными докладчиками. 
+
+Если вы хотите выступить с докладом &mdash; после регистрации подайте Talk Proposal через <a href="http://ua.pycon.org/cfpsubmit/?utm_source=habrahabr.ru&amp;utm_medium=link&amp;utm_campaign=ua.pycon.org">соотвествующую форму</a>.
+
+По форматам докладов мы предпологаем такие варианты:<ul><li>Talk (доклад на 30&mdash;45 минут)</li>
+<li>Tutorial / Master-class (интерактивное действо на 30-45 минут)</li>
+<li>Lightning talk (пятиминутный доклад)</li>
+<li>Pecha kucha (по правилам <a href="http://www.pecha-kucha.org/what">Pecha Kucha</a>)</li>
+</ul> Для докладчиков участие бесплатное.
+Кроме того, мы хотим проявить Open Space-активность и думаем над проведением спринта(ов) после конференции.
+Основным языком докладов будет английский, но, безусловно, никто не запретит сделать интересный доклад и на русском.
+Будем рады всех видеть а также открыты для предложений как сделать конференцию лучше.
+
+<code>import antigravity # !!!!!</code>
+
+PS: Думаю о теме для своего доклада. Кто о чём хочет услышать?
