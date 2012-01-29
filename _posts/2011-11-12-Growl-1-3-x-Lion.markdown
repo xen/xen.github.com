@@ -14,9 +14,11 @@ tags: ['osx', 'lion', 'cli']
 
 Первый шаг это получить актуальную копию исходников, они доступны на странице проекта на хостинге Google Code [growl.googlecode.com](http://growl.googlecode.com/):
 
-    $ cd /tmp
-    $ hg clone https://code.google.com/p/growl/
-    $ cd growl
+{% highlight bash %}
+$ cd /tmp
+$ hg clone https://code.google.com/p/growl/
+$ cd growl
+{% endhighlight %}
 
 Теперь одно из двух, либо надо создать сертификат, либо убрать его упоминание из конфигурации проекта в XCode. Если честно, то процедура запуска и индексации проекта выглядит настолько громоздко, что я бы рекомендовал обойтись без этого. Тем более, что даже на официальной странице с инструкцией указано, что могут быть проблемы в файле `hgrevision.h`. Они у меня возникли и рекомендованная попытка понажимать кнопку `Build` не сработала. Поэтому нафиг XCode, будем генерировать сертификат разработчика, если хотите посмотреть что произойдет если пропустить этот пункт, то попробуйте скомпилировать сразу:
 
@@ -27,8 +29,10 @@ tags: ['osx', 'lion', 'cli']
 
 Теперь можно запускать компиляцию:
 
-	$ xcodebuild -project Growl.xcodeproj -target Growl.app -configuration Release
-	$ open build/Release
+{% highlight bash %}
+$ xcodebuild -project Growl.xcodeproj -target Growl.app -configuration Release
+$ open build/Release
+{% endhighlight %}
 
 Появится диалог запрашивающий доступ с сертификату, чтобы не тратить время разрешите навсегда, через пару минут все будет готово. Последняя команда откроет в **Finder.app** папку в которой будет лежать файл **Growl.app**. Его надо перенести в `/Applications/` и запустить.
 

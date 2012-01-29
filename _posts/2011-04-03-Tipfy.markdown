@@ -31,58 +31,59 @@ tags: ['tipfy', 'dev', 'sdk']
 
 Создайте папку проекта:
 
-    [sourcecode:console]
-    $ mkdir demo
-    $ cd demo
-    [/sourcecode]
+{% highlight bash %}
+$ mkdir demo
+$ cd demo
+{% endhighlight %}
 
 ## Подготавливаем окружение
 
 Теперь можно создать buildout.cfg, все его содержимое можно взять на странице [документации по рецепту appfy.recipe.gae](http://pypi.python.org/pypi/appfy.recipe.gae/):
 
-    [sourcecode:cfg]
-    [buildout]
-    parts =
-        gae_sdk
-        gae_tools
-        app_lib
+{% highlight cfg %}
 
-    unzip = true
-    relative-paths = true
-    download-cache = etc/downloads
-    # eggs-directory = etc/eggs
-    develop-eggs-directory = etc/develop-eggs
-    parts-directory = etc/parts
+[buildout]
+parts =
+    gae_sdk
+    gae_tools
+    app_lib
 
-    #
-    [gae_sdk]
-    recipe = appfy.recipe.gae:sdk
-    url = http://googleappengine.googlecode.com/files/google_appengine_1.4.3.zip
-    destination = ${buildout:parts-directory}
-    hash-name = false
-    clear-destination = true
+unzip = true
+relative-paths = true
+download-cache = etc/downloads
+# eggs-directory = etc/eggs
+develop-eggs-directory = etc/develop-eggs
+parts-directory = etc/parts
 
-    #
-    [gae_tools]
-    recipe = appfy.recipe.gae:tools
-    sdk-directory = ${gae_sdk:destination}/google_appengine
+#
+[gae_sdk]
+recipe = appfy.recipe.gae:sdk
+url = http://googleappengine.googlecode.com/files/google_appengine_1.4.3.zip
+destination = ${buildout:parts-directory}
+hash-name = false
+clear-destination = true
 
-    [app_lib]
-    # Sets the library dependencies for the app.
-    recipe = appfy.recipe.gae:app_lib
-    lib-directory = src/distlib
-    use-zipimport = false
+#
+[gae_tools]
+recipe = appfy.recipe.gae:tools
+sdk-directory = ${gae_sdk:destination}/google_appengine
 
-    #
-    eggs =
-        tipfy
-        tipfy.ext.debugger
-        tipfy.ext.jinja2
-        tipfy.ext.wtforms
-        tipfy.ext.db
-    # Остальные необходимые модули, например:
-    #   pygments
-    [/sourcecode]
+[app_lib]
+# Sets the library dependencies for the app.
+recipe = appfy.recipe.gae:app_lib
+lib-directory = src/distlib
+use-zipimport = false
+
+#
+eggs =
+    tipfy
+    tipfy.ext.debugger
+    tipfy.ext.jinja2
+    tipfy.ext.wtforms
+    tipfy.ext.db
+# Остальные необходимые модули, например:
+#   pygments
+{% endhighlight %}
 
 Конечно выполнение этого сценария потребует создания структуры папок:
 
@@ -96,22 +97,25 @@ tags: ['tipfy', 'dev', 'sdk']
 
 Создаем папки:
 
-    [sourcecode:console]
-    demo $ mkdir etc etc/downloads etc/develop-eggs etc/parts
-    demo $ mkdir src src/distlib
-    [/sourcecode]
+{% highlight bash %}
+demo $ mkdir etc etc/downloads etc/develop-eggs etc/parts
+demo $ mkdir src src/distlib
+{% endhighlight %}
+
     
 Самое время развернуть окружение:
 
-    [sourcecode:console]
-    demo $ python2.5 <(curl http://python-distribute.org/bootstrap.py) --distribute
-    [/sourcecode]
+{% highlight bash %}
+demo $ python2.5 <(curl http://python-distribute.org/bootstrap.py) --distribute
+{% endhighlight %}
+
 
 Команда создает папку `bin` и скачивает современный аналог старых setuptools [distribute](http://packages.python.org/distribute/). Поскольку выполнять требуется один раз, предлагаю такой краткий вариант. А теперь главная часть:
 
-    [sourcecode:console]
-    demo $ bin/buildout
-    [/sourcecode]
+{% highlight bash %}
+demo $ bin/buildout
+{% endhighlight %}
+
 
 Выполнение команды займет некоторое время, но результат того стоит. Вы получите полностью готовое окружение.
 
@@ -138,34 +142,35 @@ tags: ['tipfy', 'dev', 'sdk']
 
 Файл, необходимый для работы любого GAE проекта. Минимальное содержимое для tipfy получится следующим:
 
-    [sourcecode:yaml]
-    application: my-app # тот id который вы выбрали в консоли GAE
-    version: dev        # версия
-    runtime: python
-    api_version: 1
+{% highlight yaml %}
+application: my-app # тот id который вы выбрали в консоли GAE
+version: dev        # версия
+runtime: python
+api_version: 1
 
-    derived_file_type:
-    - python_precompiled
+derived_file_type:
+- python_precompiled
 
-    handlers:
-    - url: /(robots\.txt|favicon\.ico)
-      static_files: static/\1
-      upload: static/(.*)
+handlers:
+- url: /(robots\.txt|favicon\.ico)
+  static_files: static/\1
+  upload: static/(.*)
 
-    - url: /static      # та самая папка static
-      static_dir: static
+- url: /static      # та самая папка static
+  static_dir: static
 
-    - url: /remote_api
-      script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
-      login: admin
+- url: /remote_api
+  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
+  login: admin
 
-    - url: /_ah/queue/deferred
-      script: main.py
-      login: admin
+- url: /_ah/queue/deferred
+  script: main.py
+  login: admin
 
-    - url: /.*
-      script: main.py
-    [/sourcecode]
+- url: /.*
+  script: main.py
+{% endhighlight %}
+
 
 Обратите внимание на последний блок, он указывает, что любые адреса страниц, кроме тех, которые были указаны выше (порядок имеет значение) передаются модулю `main.py`. 
 
@@ -173,31 +178,32 @@ tags: ['tipfy', 'dev', 'sdk']
 
 Главный загрузочный файл проекта тоже достаточно простой:
 
-    [sourcecode:python]
-    # -*- coding: utf-8 -*-
-    import os
-    import sys
-    
-    if 'lib' not in sys.path:
-        # Add /lib as primary libraries directory, with fallback to /distlib
-        # and optionally to distlib loaded using zipimport.
-        sys.path[0:0] = ['lib', 'distlib', 'distlib.zip']
-    
-    import config
-    import tipfy
-    
-    # Is this the development server?
-    debug = os.environ.get('SERVER_SOFTWARE', '').startswith('Dev')
-    
-    # Instantiate the application.
-    app = tipfy.make_wsgi_app(config=config.config, debug=debug)
-    
-    def main():
-        app.run()
-    
-    if __name__ == '__main__':
-        main()
-    [/sourcecode]
+{% highlight python %}
+# -*- coding: utf-8 -*-
+import os
+import sys
+
+if 'lib' not in sys.path:
+    # Add /lib as primary libraries directory, with fallback to /distlib
+    # and optionally to distlib loaded using zipimport.
+    sys.path[0:0] = ['lib', 'distlib', 'distlib.zip']
+
+import config
+import tipfy
+
+# Is this the development server?
+debug = os.environ.get('SERVER_SOFTWARE', '').startswith('Dev')
+
+# Instantiate the application.
+app = tipfy.make_wsgi_app(config=config.config, debug=debug)
+
+def main():
+    app.run()
+
+if __name__ == '__main__':
+    main()
+{% endhighlight %}
+
 
 Строка `if 'lib' not in sys.path:` проверяет добавлены ли модули, которые лежат в папке `lib`, в путях, по которым ищет python. Из-за особенности устройства инстанций GAE путь уже может быть изменен (модулем, который загрузился до этого или [warmup хендлером](http://code.google.com/appengine/docs/python/config/appconfig.html#Warmup_Requests)), поэтому проводится проверка. 
 
@@ -209,48 +215,50 @@ tags: ['tipfy', 'dev', 'sdk']
 
 Конфигурационный файл тоже имеет достаточно простую архитектуру, из обязательных полей, по сути только перечень middleware (который может быть пустым) и сам перечень приложений:
 
-    [sourcecode:python]
-    # -*- coding: utf-8 -*-
-    config = {}
+{% highlight python %}
+# -*- coding: utf-8 -*-
+config = {}
 
-    # Configurations for the 'tipfy' module.
-    config['tipfy'] = {
-        # Enable debugger. It will be loaded only in development.
-        'middleware': [
-            'tipfy.ext.debugger.DebuggerMiddleware',
-        ],
-        # Перечень ваших приложений
-        'apps_installed': [
-            'demo',
-            # другие приложения
-        ],
-    }
-    
-    # Остальные настройки
-    [/sourcecode]
+# Configurations for the 'tipfy' module.
+config['tipfy'] = {
+    # Enable debugger. It will be loaded only in development.
+    'middleware': [
+        'tipfy.ext.debugger.DebuggerMiddleware',
+    ],
+    # Перечень ваших приложений
+    'apps_installed': [
+        'demo',
+        # другие приложения
+    ],
+}
+
+# Остальные настройки
+{% endhighlight %}
+
     
 ### `urls.py`
 
 Хотя описание путей само по себе нельзя назвать простым занятием, но файл `urls.py` в данном случае является предельно простым и прозначным:
 
-    [sourcecode:python]
-    # -*- coding: utf-8 -*-
-    from tipfy import get_config, import_string, Rule
-    import logging
+{% highlight python %}
+# -*- coding: utf-8 -*-
+from tipfy import get_config, import_string, Rule
+import logging
 
-    def get_rules():
-        rules = []
-        for app_module in get_config('tipfy', 'apps_installed'):
-            try:
-                # Load the urls module from the app and extend our rules.
-                app_rules = import_string('%s.urls' % app_module)
-                rules.extend(app_rules.get_rules())
-            except (AttributeError, ImportError):
-                logging.error("Ouch! Misconfigured modules list, cant use %r" % 
-                    app_module)
+def get_rules():
+    rules = []
+    for app_module in get_config('tipfy', 'apps_installed'):
+        try:
+            # Load the urls module from the app and extend our rules.
+            app_rules = import_string('%s.urls' % app_module)
+            rules.extend(app_rules.get_rules())
+        except (AttributeError, ImportError):
+            logging.error("Ouch! Misconfigured modules list, cant use %r" % 
+                app_module)
 
-        return rules
-    [/sourcecode]
+    return rules
+{% endhighlight %}
+
 
 Задача файла обойти все приложения, зарегистрированные в конфигурационном файле `config.py` (директива `apps_installed`) и объединить их в единое правило. 
 
@@ -264,50 +272,55 @@ tags: ['tipfy', 'dev', 'sdk']
   
 Содержимое `src\demo\handlers.py`:
 
-    [sourcecode:python]
-    from tipfy import RequestHandler, Response
+{% highlight python %}
+from tipfy import RequestHandler, Response
 
-    class HelloWorldHandler(RequestHandler):
-        def get(self):
-            return Response('Hello, World!')
-    [/sourcecode]
+class HelloWorldHandler(RequestHandler):
+    def get(self):
+        return Response('Hello, World!')
+{% endhighlight %}
+
 
 Содержимое `src\demo\urls.py`:
 
-    [sourcecode:python]
-    from tipfy import Rule
-    def get_rules(app):
-        rules = [
-            Rule('/', endpoint='hello-world', handler='demo.handlers.HelloWorldHandler'),
-        ]
-    [/sourcecode]
+{% highlight python %}
+from tipfy import Rule
+def get_rules(app):
+    rules = [
+        Rule('/', endpoint='hello-world', handler='demo.handlers.HelloWorldHandler'),
+    ]
+{% endhighlight %}
+
 
 ## Запуск проекта
 
 Когда весь гениальный код написан, хочется его проверить в деле. Рецепт `appfy.recipe.gae` услужливо сделал для этого все нужные скрипты и разместил их в папке bin. Поскольку нас интересует запуск, выполните следующую команду:
 
-    [sourcecode:console]
-    demo $ bin/dev_appserver src
-    [/sourcecode]
+{% highlight bash %}
+demo $ bin/dev_appserver src
+{% endhighlight %}
+
     
 Если все было сделано правильно, у вас должны были появиться логи проверки версии SDK и уведомление о том, на каком порту запущен веб сервер. Адрес можно скопировать в браузер и попытаться зайти, где с некоторой вероятностью получить приветствие.
 
 Скрипт `dev_appserver` может получать все те параметы, которые описаны в [документации](http://code.google.com/appengine/docs/python/tools/devserver.html), но для удобства можно их перечислить в специальном конфигурационном файле `gaetools.cfg` и положить рядом с `buildout.cfg`. Пример файла:
 
-    [sourcecode:cfg]
-    [dev_appserver]
-    defaults =
-        --datastore_path=var/data.store
-        --history_path=var/history.store
-        --blobstore_path=var/blob.store
-        src
-    [/sourcecode]
+{% highlight cfg %}
+[dev_appserver]
+defaults =
+    --datastore_path=var/data.store
+    --history_path=var/history.store
+    --blobstore_path=var/blob.store
+    src
+{% endhighlight %}
+
 
 Последняя строка указывает на папку, в которой расположен проект, что упростит команду запуска сервера до:
 
-    [sourcecode:console]
-    demo $ bin/dev_appserver
-    [/sourcecode]
+{% highlight bash %}
+demo $ bin/dev_appserver
+{% endhighlight %}
+
 
 Не забудьте создать папку `var` если воспользуетесь указанным файлом.
 
@@ -315,9 +328,10 @@ tags: ['tipfy', 'dev', 'sdk']
 
 Остался последний шаг - отправить проект на сервера App Engine и проверить работу там. Для этого в папке `bin` есть скрипт `appfg`, который так же входит в состав стандартного SDK, и имеет тот же самый [набор команд](http://code.google.com/appengine/docs/python/tools/uploadinganapp.html). Заливка на сервер происходит достаточно просто:
 
-    [sourcecode:console]
-    demo $ bin/appcfg --no_cookies --email=your_email@gmail.com --passin update src
-    [/sourcecode]
+{% highlight bash %}
+demo $ bin/appcfg --no_cookies --email=your_email@gmail.com --passin update src
+{% endhighlight %}
+
 
 В качестве email'а укажите свой. Выполнение команды может занять минуты.
 

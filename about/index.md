@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Index"
+title: "Обо мне"
 ---
 {% include JB/setup %}
 

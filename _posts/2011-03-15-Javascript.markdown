@@ -12,7 +12,8 @@ George Moschovitis представил анонс проекта <a href="http:
 
 Оценить код можно по примерам. Вот пример работы с базой данных:
 
-<code>var db = require("google/appengine/ext/db");
+{% highlight js %}
+var db = require("google/appengine/ext/db");
 
 var Category = db.Model("Category", {
     label: new db.StringProperty(),
@@ -24,12 +25,15 @@ c.put();
 var key = ...
 var c1 = Category.get(key);
 var c2 = Category.getByKeyName("news");
-var categories = Category.all().limit(3).fetch();</code>
+var categories = Category.all().limit(3).fetch();
+{% endhighlight %}
 
 Или работа с картинками:
 
-<code>var images = require("google/appengine/api/images");
-var i = images.resize(params.image.data, 640, 480);</code>
+{% highlight js %}
+var images = require("google/appengine/api/images");
+var i = images.resize(params.image.data, 640, 480);
+{% endhighlight %}
 
 Работает это все благодаря проекту <a href="http://www.mozilla.org/rhino/">Rhino</a>, реализации JavaScript на Java. Который запускается под виртуальной машиной. 
 

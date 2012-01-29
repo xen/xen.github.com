@@ -12,7 +12,9 @@ tags: ['buildout']
 
 Секретная команда для запуска `bootstrap.py`:
 
-`python2.6 <(curl http://python-distribute.org/bootstrap.py) --distribute`
+{% highlight bash %}
+$ python2.6 <(curl http://python-distribute.org/bootstrap.py) --distribute
+{% endhighlight %}
 
 **Ваши комментарии могут повлиять на качество и содержание последующих уроков.**
 

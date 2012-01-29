@@ -11,14 +11,16 @@ tags: ['tips', 'sdk']
   * [Скачиваете SSL](http://pypi.python.org/pypi/ssl) и распаковываете
   * Указываете свою версию gcc, которой надо компилировать (у меня 4.2):
     
-    [sourcecode:console]
-    $ CC='/usr/bin/gcc-4.0' python2.5 setup.py build 
-    [/sourcecode]
+{% highlight bash %}
+$ CC='/usr/bin/gcc-4.0' python2.5 setup.py build 
+{% endhighlight %}
+
     
   * Устанавливаете в site-packages:
   
-    [sourcecode:console]
-    $ sudo python2.5 setup.py install
-    [/sourcecode]
+{% highlight bash %}
+$ sudo python2.5 setup.py install
+{% endhighlight %}
+
     
 Теперь данные будут загружаться через SSL. 
