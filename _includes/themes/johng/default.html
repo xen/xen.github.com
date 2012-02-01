@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 8]>
+        <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <script type="text/javascript" src="http://cdn.sublimevideo.net/js/nfbfar3w.js"></script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  	<link href="http://www.johng.co.uk/atom.xml" rel="alternate" title="John Griffin" type="application/atom+xml" />
+  	  {% if page.title == "John Griffin" %}
+  	    <title>{{ page.title }}</title>
+  	  {% else %}
+        <title>John Griffin: {{ page.title }}</title>
+      {% endif %}
+     <meta name="author" content="John Griffin" />
+  </head>
+  <body class="bp">
+  	<script type="text/javascript">
+
+  	  var _gaq = _gaq || [];
+  	  _gaq.push(['_setAccount', 'UA-121344-2']);
+  	  _gaq.push(['_trackPageview']);
+
+  	  (function() {
+  	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  	  })();
+
+  	</script>
+
+  	<div class="top">
+  		<div id="cont">
+  		  <div id="header">
+    			<div class="bar">
+    				<h1 class="title"><a href="{{ site.url }}">John Griffin</a></h1>
+    				<div class="right_bar">
+    				  <h3 class="info">Ruby, Rails</h3>
+    				  <h3 class="info">Tech, Games, More</h3>
+    				</div>
+    			</div>
+  			</div>
+  		</div>
+  	</div>
+
+    <div id="container" class="container">
+      <div id="content">
+      	  {{ content }}
+      </div>
+
+      <div id="footer">
+    	Copyright © <script type="text/javascript">document.write(new Date().getFullYear())</script> John Griffin
+      </div>
+    </div>
+    <script type="text/javascript">
+      //<![CDATA[
+      (function() {
+      	var links = document.getElementsByTagName('a');
+      	var query = '?';
+      	for(var i = 0; i < links.length; i++) {
+      	if(links[i].href.indexOf('#disqus_thread') >= 0) {
+      		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+      	}
+      	}
+      	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/johngblog/get_num_replies.js' + query + '"></' + 'script>');
+      })();
+      //]]>
+    </script>
+  </body>
+</html>
