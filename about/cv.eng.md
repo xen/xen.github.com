@@ -34,7 +34,7 @@ Programming languages: Python, Javascript, HTML5.
 
 Python frameworks: Zope, Plone, Django, Pyramid, Tipfy, Flask, Google App Engine.
 
-Databases: Postgres/MySQL. Non-relations: Google Datastore, ZODB, CouchDB. Work with ORM.
+Databases: Postgres/MySQL. Non-relations: Google Datastore, ZODB, MongoDB. Work with ORM.
 
 IT: Highload, system architect.
 
