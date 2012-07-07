@@ -81,7 +81,7 @@ Skills:
 - System Architect
 
 Responsibilities: Team recruiting and setup, setup of team communications, couching. After launch of development my primary fields was team leading, project architect building, code scaffolding, deployment scripts. Product requirements writing, user feedback analysis with following UX improvements, UI requirements and mockups design. Part time coding.
-We created from scratch inhouse "unframework" that works in very restricted environment of Google App Engine. Server side was API­like interface for complex GWT clients side (think Gmail­like).
+We created from scratch inhouse "unframework" that works in very restricted environment of Google App Engine. Server side was API­like interface for complex GWT clients side (think Gmail-­like).
 
 ### Mediavirus.ru (Dnepropetrovsk, Ukraine), Self-employed, 2008 - 2009
 Tasks: creating tools for data collecting and Internet projects analysis, SEO business field.<br/>
@@ -102,7 +102,7 @@ Skills:
 Responsibilities: Client consulting, preparation SEO/SMO plans, creation tools for statistical analysis of  SEO/SMO sites metrics.
 
 ### Devcult, freelancer/consultant, 2008 - present time
-Description: My own small pet bussines where I make projects for myself or clients. Notable django based projects:
+Description: My own small pet business where I make projects for myself or clients. Notable django based projects:
 
 - [Alltal.es](http://alltal.es/) — library with kid's fairy tales.
 - <http://odessit.ua> — local news portal site for Odessa (Ukraine) 
@@ -111,7 +111,7 @@ Description: My own small pet bussines where I make projects for myself or clien
 And more small services, in particular based on Django and Google App Engine.
 
 ### Key Solutions (Moscow, Russia — Dnepropetrovsk, Ukraine), cofounder, 2003 - 2007
-CEO and founder of a open source software and consulting company. Work with clients that use Zope, Plone, Python and Linux as main technologies. Creation and maintenance of small and large sites and solutions, servers support. Team leadership of 3 to 15 developers. Preparation of technical specifications based on requirements, the creation of products based on them.
+CEO and founder of small open source software and consulting company. Work with clients that use Zope, Plone, Python and Linux as main technologies. Creation and maintenance of small and large sites and solutions, servers support. Team leadership of 3 to 15 developers. Preparation of technical specifications based on requirements, the creation of products based on them.
 
 
 Former member of Plone Foundation, Zope commiter. Author of http://plone.org.ru, editor and founder of http://zope3.ru/
