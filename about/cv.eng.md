@@ -47,7 +47,7 @@ OS: OSX, Linux (Ubuntu), Windows.
 ## Work experience
 
 ### Mamba.ru (Odessa, Ukraine), CTO, oct 2011 ­— mar 2012
-Tasks: At first I setup new office for Moscow (Russia) based company and gathered two teams of mobile and social apps development. Then lead team of python engineers and we created robust cloud­like platform for social apps. Requirements was big grows if application goes viral and become popular. Also we created framework to simplify social app launch for different social networks (Facebook, Vk.com, others). We used API­like approach on server side with JavaScript rich client in browser.
+Tasks: At first I setup new office for Moscow (Russia) based company and gathered two teams of mobile and social apps development. Then lead team of python engineers and we created robust cloud­like platform for social apps. Requirements was big growth if application goes viral and becomes popular. Also we created framework to simplify social app launch for different social networks (Facebook, Vk.com, others). We used API­like approach on server side with JavaScript rich client in browser.
 
 Keywords:
 
@@ -172,7 +172,7 @@ Previous content projects:
 
 ## Additional information
 
-Marital status: I am a happy husband and father with a daughter.
+Marital status: I am a happy husband and father of daughter.
 
 Hobbies: traveling, geek-culture, Japanese culture.
 
