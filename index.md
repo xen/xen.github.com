@@ -10,6 +10,7 @@ title: Welcome to vurt
   {% endfor %}
 </ul>
 
-## Поддержать
+<!-- ## Поддержать
 
 {% include JB/support %}
+-->
