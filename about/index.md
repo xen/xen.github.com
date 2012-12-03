@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Обо мне"
+group: navigation
 ---
 {% include JB/setup %}
 
