@@ -11,7 +11,3 @@ tagline: Personal playground
   {% endfor %}
 </ul>
 
-<!-- ## Поддержать
-
-{% include JB/support %}
--->
