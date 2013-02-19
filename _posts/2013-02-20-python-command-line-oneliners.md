@@ -61,6 +61,8 @@ Even is possible to make a little setup using `-s` parameter:
     $ python -m timeit -s "import json" "json.dumps({'a':'a'})" 
     100000 loops, best of 3: 5.98 usec per loop
     
-Probably it is more common for me, if you like to discover more then simple scan standard python library for `if __name__ == '__main__':` substring and check results: 
+### More
+
+Probably listed here is more common for me. But if you like to discover more, then simple scan standard python library for `if __name__ == '__main__'` substring and check results: 
 
     $ grep -r  "if __name__ == '__main__'" /path/to/python/libaray/
