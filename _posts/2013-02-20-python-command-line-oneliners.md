@@ -7,7 +7,7 @@ tags: ['python', 'runglish', 'cli']
 ---
 {% include JB/setup %}
 
-There is list of pretty useful python small command line onliners available out of the box. That means if you already have installed python on your system (most Linux, *BSD, including OSX) then you can use it even if you are not python developer.
+There is list of pretty useful python small command line oneliners available out of the box. That means if you already have installed python on your system (most Linux, *BSD, including OSX) then you can use it even if you are not python developer.
 
 I love most way to create fake SMTP server:
 
@@ -20,7 +20,7 @@ If you develop using something else, but need to send emails and want to debug o
         
 And run `make mail`, voila you have running SMTP daemon on 20025 port. Easy!
 
-**Make JSON beautiful**? Next onliner:
+**Make JSON beautiful**? Next oneliner:
 
     $ echo '{"foo": "lorem", "bar": "ipsum"}' | python -mjson.tool
 
