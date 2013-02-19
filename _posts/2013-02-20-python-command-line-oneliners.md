@@ -3,7 +3,7 @@ layout: post
 title: "Python command line oneliners"
 description: ""
 category: 
-tags: []
+tags: ['python', 'runglish', 'cli']
 ---
 {% include JB/setup %}
 
