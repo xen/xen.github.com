@@ -3,7 +3,7 @@ layout: post
 title: "SQLite auto increment in Flask SQLAlchemy"
 description: ""
 category: 
-tags: []
+tags: ["flask", "sqlite", "eng", "bakey", "sqlalchemy"]
 ---
 {% include JB/setup %}
 
