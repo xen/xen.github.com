@@ -7,8 +7,6 @@ tags: ["flask", "sqlite", "eng", "bakey", "sqlalchemy"]
 ---
 {% include JB/setup %}
 
-# Sqlite primary key
-
 Working with [Bakery](https://github.com/xen/bakery/) I noticed strange behaviour of Sqlite. One of my models looks like (this is Flask-SQLAlchemy notation):
 
 {% highlight python %}
