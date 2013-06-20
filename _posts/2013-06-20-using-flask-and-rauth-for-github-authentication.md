@@ -7,9 +7,9 @@ tags: ['flask', 'rauth', 'eng']
 ---
 {% include JB/setup %}
 
-Recently I made a research about OAuth libraries for Flask. Picture is not bright, most packages are outdated and abandoned. Well known `Flask-Oauth` is generally dead and I don't recoment to rely on it. Funny that OAuth itself is very simple, after some magic during authentification you have `access_token` which you only need to add as GET parameter or special header to your request. Probably other providers need more complex logic but it is enough for Github. 
+Recently I made a research about OAuth libraries for Flask. Picture is not bright, most packages are outdated and abandoned. Well known Flask-Oauth is generally dead and I don't recommend to rely on it. Funny that OAuth itself is very simple, after some magic during authentication you have `access_token` which you only need to add as GET parameter or special header to your request. Probably other providers need more complex logic but it is enough for Github. 
 
-Trying to [fix `Flask-OAuth` I asked question on SO](http://stackoverflow.com/q/15964268/85739) and got answer from author of `rauth`, he recomend to use his library. And this post is my way to payback to him and opensource. I made this real life example of how you can use `Flask`, `rauth`, Github and `sessions` to authorize users on your site.
+Trying to [fix Flask-OAuth I asked question on SO](http://stackoverflow.com/q/15964268/85739) and got answer from author of `rauth`, he recommend to use his library. And this post is my way to payback to him and open source. I made this real life example of how you can use `Flask`, `rauth`, Github and `sessions` to authorize users on your site.
 
 First of all you need to setup your local environment. Make sure that you have installed `python`, `pip` and `virtualenv`. Then setup environment:
 
@@ -23,7 +23,7 @@ If you only want to run my example then you also need Sqlite python binding, whi
 
 `pip` install all dependencies, so you should have everything ready.
 
-Now you need to go to [*Applications* sections](https://github.com/settings/applications) in your Github settins area and setup new your own. This is example of what I have in my area:
+Now you need to go to [*Applications* sections](https://github.com/settings/applications) in your Github settings area and setup new your own. This is example of what I have in my area:
 
 ![image](/assets/img/githubappsetup.png)
 
@@ -47,7 +47,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 db = SQLAlchemy(app)
 
-# In your real application you need to setup  
+# Use your own values in your real application  
 github = OAuth2Service(
     name='github',
     base_url='https://api.github.com/',
