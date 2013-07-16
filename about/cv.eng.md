@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "CV in English"
+description: "This is my old fashioned boring style CV"
 ---
 {% include JB/setup %}
 
@@ -19,20 +20,19 @@ Languages: Russian, English.
 
 - Email/Jabber: mkashkin@gmail.com
 - Skype: mkashkin
-- <del>Cell phone: +380 (67) 283-8299</del>, please use email or skype as I can be outside Ukraine
+- <del>Cell phone: +380 (67) 283-8299</del>, please use email or skype as I can be outside of Ukraine
 
 Open source and social networks:
 
-- [http://code.google.com/u/mkashkin/](http://code.google.com/u/mkashkin/)
 - [**http://github.com/xen/**](http://github.com/xen/)
 - [http://www.linkedin.com/in/mkashkin](http://www.linkedin.com/in/mkashkin)
-- [http://xen.habrahabr.ru/](http://xen.habrahabr.ru/)
+- <del>[http://code.google.com/u/mkashkin/](http://code.google.com/u/mkashkin/)</del>
 
 ## Skills
 
 Programming languages: Python, Javascript, HTML5.
 
-Python frameworks: Zope, Plone, Django, Pyramid, Tipfy, Flask, Google App Engine.
+Python frameworks: Flask, Django, Pyramid. In past Zope, Plone, Google App Engine.
 
 Databases: Postgres/MySQL. Non-relations: Google Datastore, ZODB, MongoDB. Work with ORM.
 
@@ -40,11 +40,20 @@ IT: Highload, system architect.
 
 Source code management: Git, Mercurial, Subversion. Buildout, pip.
 
-Project management: Team leading, HR and building team from scratch, development process management, planning, risk management, requirements and scope definition, continuous quality control, development methodology. XP, SCRUM, team management. 
+Project management: Team leader, development process management.
 
 OS: OSX, Linux (Ubuntu), Windows.
 
 ## Work experience
+
+### metamedia (Koh Samui, Thailand), Senior Backend Developer, sep 2012 - mar 2013 
+Tasks: My task was improve already existed Backend API server writen on Python with PostgreSQL database storage behind. Project http://www.citizen.tv/ is video hosting similar to Youtube with aditional functionality for art people. I mostly work with internal stuff of API server made several big refactors and optimisation that helps scale project and made it more stable and faster.
+
+Keywords:
+
+- Python
+- Postgres
+- PL/SQL
 
 ### Mamba.ru (Odessa, Ukraine), CTO, oct 2011 ­— mar 2012
 Tasks: at first I have set up the new office for Moscow (Russia) based company and and built two teams for mobile and social apps development. Then led the team of python engineers and we created robust cloud­-like platform for social apps. Requirements were big growth if application goes viral and becomes popular. Also we created framework to simplify social app launch for different social networks (Facebook, Vk.com, others). We used API­-like approach on server side with JavaScript rich client in browser.
@@ -175,9 +184,3 @@ Previous content projects:
 Marital status: I am a happy husband and father of daughter.
 
 Hobbies: traveling, geek-culture, Japanese culture.
-
-Available driving silence and foreign passport.
-
-Not smoking.
-
-
