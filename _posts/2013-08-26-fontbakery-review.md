@@ -282,7 +282,7 @@ def login_required(f):
 
 - Его перебросит на страницу `/auth/login?next=/test` (`url_for('gitauth.login', next=request.url)`)
 - Эта страница перебросит его на GitHub страницу авторизации
-- GitHub увидит, что пользователь уже дал права, выдаст пользователю код, который превратится в токен
+- GitHub увидит, что пользователь уже дал права, выдаст пользователю код для обмена на токен
 - Перебросит на `/auth/callback?next=/test&code=XXX`
 - Вид [`/callback`](https://github.com/xen/fontbakery/blob/master/bakery/gitauth/views.py#L62) попытается обменять *code* на токен и если получится, то перебросит пользователя на страницу в переменной *next*
 
