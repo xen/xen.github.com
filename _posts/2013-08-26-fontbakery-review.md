@@ -197,10 +197,8 @@ def extensions_fabrics(app):
 Весь код выглядит приблизительно так:
 
 {% highlight python %}
-from flask import (Blueprint, render_template, Response, g, request,
-    current_app, send_from_directory)
-
-from ..project.models import Project
+from flask import Blueprint, render_template, g
+from ..models import Project
 
 # создание самого модуля
 frontend = Blueprint('frontend', __name__)
