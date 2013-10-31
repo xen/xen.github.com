@@ -3,7 +3,7 @@ layout: post
 title: "Детский сад по методике Марии Монтессори"
 description: ""
 category: 
-tags: ['родительство']
+tags: ['родительство', 'alice']
 ---
 {% include JB/setup %}
 
