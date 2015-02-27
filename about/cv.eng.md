@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "CV in English"
-description: "This is my old fashioned boring style CV"
+title: "Mikhail Kashkin Python developer resume"
+no_title: true
 ---
 {% include JB/setup %}
 
@@ -10,21 +10,22 @@ description: "This is my old fashioned boring style CV"
 ## About me
 
 Birth date: 29 october 1980
-Position: python programmer, project manager, system architect.
+Position: python programmer, project manager.
 
-I'm a python developer with over 10 years of experience in highload and long­term web projects. Professional goal is the long­term collaboration with product IT company with target market in US and Europe.
+I'm python developer with more than 10 years of experience in highload and long-term projects. Professional goals are the long-term collaboration with product IT company with target market in US, Europe and Asia.
 
-Languages: Russian, English.
+Languages: English, Ukrainian, Russian.
 
 ## Contacts
 
-- Email/Jabber: mkashkin@gmail.com
+- Email: mkashkin@gmail.com
 - Skype: mkashkin
-- <del>Cell phone: +380 (67) 283-8299</del>, please use email or skype as I can be outside of Ukraine
+- Cell phone: +380 (67) 283-8299, please use email or skype for communication
 
-Open source and social networks:
+Other profiles:
 
 - [**http://github.com/xen/**](http://github.com/xen/)
+- [http://careers.stackoverflow.com/xen/](http://careers.stackoverflow.com/xen/)
 - [http://www.linkedin.com/in/mkashkin](http://www.linkedin.com/in/mkashkin)
 - <del>[http://code.google.com/u/mkashkin/](http://code.google.com/u/mkashkin/)</del>
 
@@ -32,121 +33,75 @@ Open source and social networks:
 
 Programming languages: Python, Javascript, HTML5.
 
-Python frameworks: Flask, Django, Pyramid. In past Zope, Plone, Google App Engine.
+Python: Flask, Django, Pyramid, Google App Engine. In past Zope, Plone, 
 
 Databases: Postgres/MySQL. Non-relations: Google Datastore, ZODB, MongoDB. Work with ORM.
-
-IT: Highload, system architect.
 
 Source code management: Git, Mercurial, Subversion. Buildout, pip.
 
 Project management: Team leader, development process management.
 
-OS: OSX, Linux (Ubuntu), Windows.
+OS: OS X, Linux (Ubuntu).
 
 ## Work experience
 
+### Healthjoy (Ukraine), Lead developer/Product manager, feb 2014 - jul 2014
+HealthJoy is on a mission to help people make better healthcare decisions. Obamacare changed landscape how people communicate with doctors, hospitals, insurance companies and healthcare in general in USA.
+
+My duties was work with requirements from Chicago HQ and build a fast reliable backend on top of big data driven recommendation service that help customers make decisions how to save money.
+
+Keywords: flask, python, postgresql
+
+### Google, independent contractor (remote job), apr 2013 - feb 2014
+Font Bakery is a set of command-line tools for building and testing font projects, and a web interface for reviewing them. It runs checks on source files in UFO, SFD or TTX formats and builds them into OTF and TTF files (plus the files needed for hosting in Google Web Fonts.) It runs tests on these files and stores the results in files that can be browsed by the Font Bakery web app.
+
+My part was ongoing project development. Whole code is available under Apache 2 license on GitHub page https://github.com/xen/fontbakery/
+
+Keywords: python, flask, continuous integration platform, redis, gevent, websockets
+
 ### metamedia (Koh Samui, Thailand), Senior Backend Developer, sep 2012 - mar 2013 
-Tasks: My task was improve already existed Backend API server writen on Python with PostgreSQL database storage behind. Project http://www.citizen.tv/ is video hosting similar to Youtube with aditional functionality for art people. I mostly work with internal stuff of API server made several big refactors and optimisation that helps scale project and made it more stable and faster.
+My task was improve already existed Backend API server written on Python with PostgreSQL database storage. Project http://www.citizen.tv/ is video hosting similar to Youtube with additional functionality for art people. I mostly work with internal stuff of API server, made several big refactors and optimization that helps scale project and made it more stable and faster.
 
-Keywords:
-
-- Python
-- Postgres
-- PL/SQL
+Keywords: Python, Postgres, PL/SQL
 
 ### Mamba.ru (Odessa, Ukraine), CTO, oct 2011 ­— mar 2012
-Tasks: at first I have set up the new office for Moscow (Russia) based company and and built two teams for mobile and social apps development. Then led the team of python engineers and we created robust cloud­-like platform for social apps. Requirements were big growth if application goes viral and becomes popular. Also we created framework to simplify social app launch for different social networks (Facebook, Vk.com, others). We used API­-like approach on server side with JavaScript rich client in browser.
+At first I setup new office for Moscow (Russia) based company and gathered two teams of mobile and social apps development. Then lead team of python engineers and we created robust cloud-like platform for social apps. Requirements was big grows if application goes viral and become popular. Also we created framework to simplify social app launch for different social networks (Facebook, Vk.com, others). We used API-like approach on server side with JavaScript rich client in browser. Also my task was create that team from scratch.
 
-Keywords:
-
-- Python
-- Flask
-- Celery
-- MongoDB
-- Social apps
-- Highload
-- uwsgi
+Keywords: Python, Flask, Celery, MongoDB, Social apps, Highload, uwsgi
 
 ### iPark Ventures (Odessa, Ukraine), CTO/System architect, feb 2010 - may 2011
-Tasks: developers team building, creating the Experika.com. project<br/>
-Technologies: Google App Engine, Tipfy, Python. This project works on non-relational Datastore database which is the basis of many Google projects.<br/>
-Links:
+Team recruiting and setup, setup of team communications, couching. After launch of development my primary fields was team leading, project architect building, code scaffolding, deployment scripts. Product requirements writing, user feedback analysis with following UX improvements, UI requirements and mockups design. Part time coding.
+
+We created from scratch in house framework that works in restricted environment of Google App Engine. Server side was API-like interface for complex GWT client side with rich application interface (Gmail-like).
 
 - [http://experika.com](http://experika.com)
 
-Skills:
+Keywords: Google App Engine, Python, Tipfy, UX, UI, Mockups, Datastore, Buildout, Git, Mercurial, Project management, System Architect
 
-- Google App Engine
-- Python
-- Tipfy
-- UX, UI
-- Mockups
-- Datastore
-- Buildout
-- Git
-- Mercurial
-- Project management
-- System Architect
-
-Responsibilities: Team recruiting and setup, team communications setup, couching. After launch of development my primary fields was team leading, project architect building, code scaffolding, deployment scripts. Product requirements writing, user feedback analysis with following UX improvements, UI requirements and mockups design. Part time coding.
-We created an in-house "unframework" from scratch that works in very restricted environment of Google App Engine. Server side was API­like interface for complex GWT clients side (think Gmail-­like).
-
-### Mediavirus.ru (Dnepropetrovsk, Ukraine), Self-employed, 2008 - 2009
-Tasks: creating tools for data collecting and Internet projects analysis, SEO business field.<br/>
-Technologies: Python, GAE.<br/>
-Links:
-
-- [http://seoautomator.mediavirus.ru](http://seoautomator.mediavirus.ru) (private service)
-
-Skills:
-
-- Python
-- GAE
-- SEO/SMO
-- Project Management
-- Analytics
-- Consulting
-
-Responsibilities: Client consulting, preparation SEO/SMO plans, creation tools for statistical analysis of  SEO/SMO sites metrics.
-
-### Devcult, freelancer/consultant, 2008 - present time
-Description: My own small pet business where I make projects for myself or clients. Notable django based projects:
+### Devcult, freelancer/consultant, 2009 - 2013
+My own small pet business where I make projects for myself or clients. Including consulting and SEO/Internet marketing service. Notable django based projects:
 
 - [Alltal.es](http://alltal.es/) — library with kids' fairy tails
 - <http://odessit.ua> — local news portal site for Odessa (Ukraine) 
 - <http://imperiadp.com.ua> — sushi and pizza delivery company in Dnepropetrovsk
 
-And more small services, in particular based on Django and Google App Engine.
-
-### Key Solutions (Moscow, Russia — Dnepropetrovsk, Ukraine), cofounder, 2003 - 2007
-CEO and founder of small open source software and consulting company. Work with clients that use Zope, Plone, Python and Linux as main technologies. Creation and maintenance of small and large sites and solutions, server support. Leading team of 3 to 15 developers. Preparation of technical specifications based on requirements, the creation of products based on them.
-
+### Key Solutions (Moscow, Russia — Dnepropetrovsk, Ukraine), CEO/founder, 2003 - 2007
+CEO and founder of small open source software and consulting company. Work with clients that use Zope, Plone, Python and Linux as main technologies. Creation and maintenance of small and large sites and solutions, server support. Started from team of 3 and grown up to 15 developers. 
 
 Former member of Plone Foundation, Zope commiter. Author of http://plone.org.ru, editor and founder of http://zope3.ru/
 
-I led Key Solutions for several year so technologies stack is big, most notable is: MySQL, Postgres, ZODB, Linux, Python, Zope, Plone, ZPT and more.
+I led Key Solutions for several years and made company leading Plone, Zope and Python service provider on CIS (Russia, Ukraine and other Russian speaking countries) market.
 
 Selected projects: 
 
 * my team created Zope3 CA­ based web framework Hivurt. And then built several other products ontop of it.
-* group of websites (about 10 sites of different scales) and management systems for the biggest real estate agency in Russia [MIEL](http://www.miel.ru) (at the present time these sites are supported by Artemy Lebedev Studio). Zope, python, Postgres.
-* Dozen open source products for Plone.
+* group of websites (about 10 sites of different scales) and management systems for the biggest real estate agency in Russia [MIEL](http://www.miel.ru).
+* Dozen open source products for Plone and Zope3
 * Sport TV channel, [http://sportbox.ru/](http://sportbox.ru/), version of 2007 - 2009 yrs., one of the biggest Zope3 projects
 
-Skills:
+Keywords: Python, Postgres, Zope 2, Zope CA (Zope 3), Plone, Project Management, DBA, Linux, Subversion
 
-- Python
-- Postgres
-- Zope 2
-- Zope CA (Zope 3)
-- Plone
-- Project Management
-- DBA
-- Linux
-- Subversion
-
-Responsibilities: Work with clients that use Zope, Plone, Python and Linux as main technologies, account management. Creation and maintenance of small and large sites and solutions (up to 4 persons / year), servers support. Team leadership of 3 to 15 developers. Preparation of technical specifications based on requirements, the creation of products based on them.
+Responsibilities: Work with clients that use Zope, Plone, Python and Linux as main technologies, account management. Creation and maintenance of small and large sites and solutions, servers support. Team leadership. 
 
 ## Nonprofit
 
@@ -178,6 +133,8 @@ Previous content projects:
 - [http://plone.org.ru/](http://plone.org.ru/) — website for Plone developers
 - [http://zope3.ru/](http://zope3.ru/)
 - [http://marketinglab.ru/](http://marketinglab.ru/)
+
+During 2014 volunteering in expert group that lobby changes in Ukrainian laws related to eIDs, eGovernment and cryptography.
 
 ## Additional information
 
