@@ -1,3 +1,10 @@
+---
+layout: page
+title: "Mikhail Kashkin Python developer resume"
+no_title: true
+---
+{% include JB/setup %}
+
 # Mikhail Kashkin
 
 ## About me
